@@ -1,0 +1,31 @@
+{
+  "extends": "./packages/typescript-config/base.json",
+  "compilerOptions": {
+    "rootDir": "./",
+    "outDir": "./dist",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["packages/*"],
+      "@/apis/*": ["packages/_apis/*"],
+      "@/components/*": ["packages/_components/*"],
+      "@/hooks/*": ["packages/_hooks/*"],
+      "@/eslint-config/*": ["packages/_eslint-config/*"],
+      "@/msw-config/*": ["packages/_msw-config/*"],
+      "@/typescript-config/*": ["packages/_typescript-config/*"],
+    },
+    "allowImportingTsExtensions": false,
+    "noEmit": false // JavaScript 파일 생성 허용
+  },
+  "include": [
+    "**/*.js",
+    "**/*.ts",
+    "**/*.tsx",
+    ".eslintrc.js",
+    "next-env.d.ts",
+    "dist/**/*",
+    "public/**/*"
+  ],
+  "exclude": ["node_modules"]
+}
