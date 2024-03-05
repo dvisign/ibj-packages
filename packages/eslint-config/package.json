@@ -1,0 +1,10 @@
+{
+  "name": "@ibj/eslint-config",
+  "private": true,
+  "main":"index.js",
+  "types": "index.d.ts",
+  "files": [
+    "library.js",
+    "next.js"
+  ]
+}

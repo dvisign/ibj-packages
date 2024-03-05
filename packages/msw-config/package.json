@@ -1,0 +1,9 @@
+{
+  "name": "@ibj/msw-config",
+  "private": true,
+  "main":"index.js",
+  "types": "index.d.ts",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
