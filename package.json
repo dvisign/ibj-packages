@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
+  "exports": {
+    ".": {
+      "default": "./index.ts"
+    }
+  },
+  "type": "module",
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack serve --open --mode development",
@@ -37,7 +43,7 @@
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3",
-    "webpack": "^5.90.3",
+    "webpack": "^5.1.4",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.2",
     "webpack-node-externals": "^3.0.0"
@@ -47,5 +53,9 @@
     "msw": "^2.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "peerDependencies": {
+    "@mswjs/http-middleware": "^0.9.2",
+    "msw": "^2.2.2"
   }
 }
