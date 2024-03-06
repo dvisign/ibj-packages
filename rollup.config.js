@@ -13,6 +13,35 @@ import nodePolyfills from 'rollup-plugin-node-polyfills'; // 추가
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+function getOutputs(__dirname, packagesPath) {
+  const outputs = [];
+  
+  // Loop through each module in the packages directory
+  const modules = fs.readdirSync(packagesPath);
+  modules.forEach((moduleName) => {
+    const modulePath = path.join(packagesPath, moduleName);
+    
+    // Check if the module has index.ts or index.tsx
+    const hasIndexTS = fs.existsSync(path.join(modulePath, 'index.ts'));
+    const hasIndexTSX = fs.existsSync(path.join(modulePath, 'index.tsx'));
+    
+    // If index.ts or index.tsx exists, add an output configuration
+    if (hasIndexTS || hasIndexTSX) {
+      const format = hasIndexTS ? 'umd' : 'es';
+      const outputFile = hasIndexTS ? 'index.js' : 'index.esm.js';
+      
+      outputs.push({
+        file: path.join(modulePath, "dist", outputFile),
+        format: format,
+        name: moduleName,
+        sourcemap: process.env.NODE_ENV === "production" ? true : false,
+      });
+    }
+  });
+  
+  return outputs;
+}
+
 export default {
   input: "index.tsx",
   output: [
@@ -31,6 +60,7 @@ export default {
       format: "es",
       sourcemap: process.env.NODE_ENV === "production" ? true : false,
     },
+    ...getOutputs(__dirname, path.join(__dirname, "packages")),
   ],
   plugins: [
     nodeResolve({ browser: true }), // browser 옵션 추가
