@@ -1,0 +1,6 @@
+{
+  "name": "@ibj/_components",
+  "private": true,
+  "main":"index.js",
+  "types": "index.d.ts"
+}

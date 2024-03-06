@@ -1,8 +1,9 @@
-const { resolve } = require("node:path")
+// library.js
+import { resolve } from "path";
 
-const project = resolve(process.cwd(), "tsconfig.json")
+const project = resolve(process.cwd(), "tsconfig.json");
 
-module.exports = {
+export default {
   parserOptions: {
     project,
   },
@@ -32,4 +33,4 @@ module.exports = {
     "node_modules/",
     "*.json",
   ],
-}
+};

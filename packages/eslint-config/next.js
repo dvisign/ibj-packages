@@ -1,8 +1,9 @@
-// const fs = require("node:fs")
-const { resolve } = require("node:path")
-const project = resolve(process.cwd(), "tsconfig.json")
+// next.js
+import { resolve } from "path";
 
-module.exports = {
+const project = resolve(process.cwd(), "tsconfig.json");
+
+export default {
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -76,61 +77,5 @@ module.exports = {
       "error",
       { ignore: ["\\@.*$"] }, // all our aliases start with a @ sign
     ],
-    // "import/order": [
-    //   "error",
-    //   {
-    //     "newlines-between": "always",
-    //     pathGroups: [
-    //       ...getDirectoriesToSort().map((singleDir) => ({
-    //         pattern: `${singleDir}/**`,
-    //         group: "internal",
-    //       })),
-    //       {
-    //         pattern: "@repo/**",
-    //         group: "internal",
-    //       },
-    //       {
-    //         pattern: "env",
-    //         group: "internal",
-    //       },
-    //       {
-    //         pattern: "theme",
-    //         group: "internal",
-    //       },
-    //       {
-    //         pattern: "public/**",
-    //         group: "internal",
-    //         position: "after",
-    //       },
-    //     ],
-    //     groups: [
-    //       "external",
-    //       "builtin",
-    //       "internal",
-    //       "sibling",
-    //       "parent",
-    //       "index",
-    //     ],
-    //     pathGroupsExcludedImportTypes: ["internal"],
-    //     alphabetize: {
-    //       order: "asc",
-    //       caseInsensitive: true,
-    //     },
-    //   },
-    // ],
-    // "import/no-unused-modules": "warn",
-    // "import/no-webpack-loader-syntax": "error",
-    // "import/newline-after-import": ["error", { count: 1 }],
-    // "import/no-duplicates": ["error", { considerQueryString: true }],
   },
-}
-// function getDirectoriesToSort() {
-//   const ignoredSortingDirectories = [".git", ".next", ".vscode", "node_modules"]
-//   return getDirectories(process.cwd()).filter(f => !ignoredSortingDirectories.includes(f))
-// }
-
-// function getDirectories(path) {
-//   return fs.readdirSync(path).filter(file => {
-//     return fs.statSync(`${path}/${file}`).isDirectory()
-//   })
-// }
+};

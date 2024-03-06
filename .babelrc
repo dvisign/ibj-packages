@@ -1,0 +1,9 @@
+{
+  "presets": [
+    "@babel/preset-env", // 환경에 맞게 자동으로 설정
+    "@babel/preset-react" // React 코드를 변환하는 프리셋
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime" // 런타임 헬퍼 함수 추가
+  ]
+}
