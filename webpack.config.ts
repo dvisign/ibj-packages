@@ -1,6 +1,6 @@
-const path = require("path")
-const nodeExternals = require("webpack-node-externals")
+import path from "node:path"
 
+import nodeExternals from "webpack-node-externals";
 // devServer 설정을 포함하기 위해 Configuration 타입을 확장합니다.
 const config = {
   name: "@ibj",
@@ -18,6 +18,11 @@ const config = {
         test: /\.tsx?$/,
         use: "ts-loader",
         exclude: /node_modules/,
+      },
+      {
+        test: /\.json$/,
+        use: "file-loader",
+        type: "javascript/auto",
       },
     ],
   },

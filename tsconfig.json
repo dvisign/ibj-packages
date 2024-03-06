@@ -3,16 +3,15 @@
   "compilerOptions": {
     "outDir": "./dist",
     "baseUrl": "./",
-    "paths": {
-      "@ibj/*": ["packages/*"]
-    },
-    "allowImportingTsExtensions": false,
-    "noEmit": false // JavaScript 파일 생성 허용
+    "paths": { "@ibj/*": ["packages/*"] },
+    "allowJs": true,
+    "module": "CommonJS",
+    "noEmit": false
   },
   "include": [
     ".eslintrc.js",
     "packages/eslint-config/**/*",
-    "packages/typescript-config/**/*",
+    "packages/typescript-config/**/*.json",
     "./**/*"
   ],
   "exclude": ["node_modules"]
