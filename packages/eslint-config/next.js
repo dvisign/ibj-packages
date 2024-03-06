@@ -1,9 +1,8 @@
-// next.js
-import { resolve } from "path";
+const path = require("path")
 
-const project = resolve(process.cwd(), "tsconfig.json");
+const project = path.resolve(process.cwd(), "tsconfig.json")
 
-export default {
+module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -27,12 +26,7 @@ export default {
     browser: true,
     es2021: true,
   },
-  ignorePatterns: [
-    // Ignore dotfiles
-    // ".*.js",
-    "*.json",
-    "node_modules/",
-  ],
+  ignorePatterns: ["*.json", "node_modules/"],
   overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
   plugins: ["@typescript-eslint", "react", "autofix", "react-hooks", "prettier"],
   settings: {
@@ -78,4 +72,4 @@ export default {
       { ignore: ["\\@.*$"] }, // all our aliases start with a @ sign
     ],
   },
-};
+}

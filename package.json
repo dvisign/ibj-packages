@@ -8,7 +8,6 @@
       "default": "./index.tsx"
     }
   },
-  "type": "module",
   "scripts": {
     "build": "rollup -c",
     "build:webpack": "webpack --mode production",

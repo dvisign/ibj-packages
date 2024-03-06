@@ -3,7 +3,11 @@
   "compilerOptions": {
     "outDir": "./dist",
     "baseUrl": "./",
-    "paths": { "@ibj/*": ["packages/*"] },
+    "paths": { 
+      "@ibj/*": ["packages/*"],
+      "@ibj/components/*": ["packages/_components/src/*"],
+      "@ibj/eslint-config/*": ["packages/eslint-config/*"]
+    },
     "allowJs": true,
     "module": "ES6",
     "noEmit": false
