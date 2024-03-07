@@ -2,10 +2,10 @@
   "name": "ibj-front-common",
   "version": "1.0.0",
   "description": "",
-  "main": "index.tsx",
+  "main": "./dist/index.js",
   "exports": {
     ".": {
-      "default": "./index.tsx"
+      "default": "./dist/index.js"
     }
   },
   "scripts": {

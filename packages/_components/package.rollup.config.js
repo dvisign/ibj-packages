@@ -17,7 +17,7 @@ const rollupConfig = [
     input: "packages/_components/index.tsx",
     output: [
       {
-        file: "dist/_components/index.js",
+        file: "dist/index.js",
         format: "umd",
         name: "ibjComponents",
         sourcemap: process.env.NODE_ENV === "production" ? true : false,
@@ -27,7 +27,7 @@ const rollupConfig = [
         },
       },
       {
-        file: "dist/_components/index.esm.js",
+        file: "dist/index.esm.js",
         format: "es",
         sourcemap: process.env.NODE_ENV === "production" ? true : false,
       },
