@@ -1,7 +1,7 @@
 {
   "extends": "./packages/typescript-config/base.json",
   "compilerOptions": {
-    "outDir": "./dist",
+    "outDir": "dist",
     "baseUrl": "./",
     "paths": { 
       "@ibj/*": ["packages/*"],

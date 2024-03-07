@@ -7,8 +7,8 @@ import commonjs from "@rollup/plugin-commonjs"
 
 const rollupConfig = [
   {
-    input: "packages/components/index.tsx",
-    output: {
+    input: ["packages/components/index.tsx"],
+    output: [{
       // file: "dist/components/index.js",
       dir: "dist/components",
       format: "es",
@@ -18,11 +18,11 @@ const rollupConfig = [
         react: "React",
         "react-dom": "ReactDOM",
       },
-    },
+    }],
     plugins: [
       external(),
       commonjs(),
-      typescript({ tsconfig: "./packages/components/tsconfig.json", outDir: "./dist/components", outputToFilesystem: true }),
+      typescript({ tsconfig: "./packages/components/tsconfig.json", outputToFilesystem: true }),
       sucrase({
         exclude: ["node_modules/**"],
         transforms: ["typescript", "jsx"],
