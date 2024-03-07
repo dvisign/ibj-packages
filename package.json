@@ -79,5 +79,6 @@
   "peerDependencies": {
     "@mswjs/http-middleware": "^0.9.2",
     "msw": "^2.2.2"
-  }
+  },
+  "resolutions": { "@emotion/serialize": "1.1.3" }
 }

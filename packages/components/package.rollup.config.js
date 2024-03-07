@@ -4,6 +4,7 @@ import sucrase from "@rollup/plugin-sucrase";
 import typescript from "@rollup/plugin-typescript";
 import external from "rollup-plugin-peer-deps-external";
 import commonjs from "@rollup/plugin-commonjs"
+import { nodeResolve } from "@rollup/plugin-node-resolve"
 
 const rollupConfig = [
   {
@@ -20,6 +21,7 @@ const rollupConfig = [
       },
     }],
     plugins: [
+      nodeResolve({ browser: true }),
       external(),
       commonjs(),
       typescript({ tsconfig: "./packages/components/tsconfig.json", outputToFilesystem: true }),
@@ -30,7 +32,7 @@ const rollupConfig = [
       nodePolyfills(),
       process.env.NODE_ENV === "production" && terser(),
     ],
-    external: ["react", "react-dom", "@mui/base", "clsx", "@emotion/styled"],
+    external: ["react", "react-dom"],
   }
 ];
 
