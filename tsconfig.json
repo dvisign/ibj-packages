@@ -6,7 +6,8 @@
     "paths": { 
       "@ibj/*": ["packages/*"],
       "@ibj/components/*": ["packages/_components/src/*"],
-      "@ibj/eslint-config/*": ["packages/eslint-config/*"]
+      "@ibj/eslint-config/*": ["packages/eslint-config/*"],
+      "@lib/*": ["lib/*"]
     },
     "allowJs": true,
     "module": "ES6",
