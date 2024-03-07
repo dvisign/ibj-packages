@@ -5,7 +5,7 @@
     "baseUrl": "./",
     "paths": { 
       "@ibj/*": ["packages/*"],
-      "@ibj/components/*": ["packages/_components/src/*"],
+      "@ibj/components/*": ["packages/components/src/*"],
       "@ibj/eslint-config/*": ["packages/eslint-config/*"],
       "@lib/*": ["lib/*"]
     },
@@ -16,7 +16,6 @@
   "include": [
     ".eslintrc.js",
     "packages/*",
-    "./**/*"
   ],
   "exclude": ["node_modules"],
   "ignorePattern": ["./dist/*"]

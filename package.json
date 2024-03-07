@@ -9,7 +9,7 @@
     }
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c --verbose",
     "build:webpack": "webpack --mode production",
     "start": "webpack serve --open --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
