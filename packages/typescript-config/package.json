@@ -1,6 +1,7 @@
 {
   "name": "@ibj/typescript-config",
   "private": true,
+  "type": "module",
   "files": [
     "index.js",
     "index.d.ts",

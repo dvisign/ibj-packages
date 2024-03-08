@@ -1,6 +1,7 @@
 {
   "name": "@ibj/eslint-config",
   "private": true,
+  "type": "module",
   "files": [
     "library.js",
     "next.js"

@@ -1,8 +1,12 @@
 {
   "extends":"../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/components"
+    "outDir": "../../dist/components",
+    "allowJs": true,
+    "module": "ES6",
+    "noEmit": false
   },
+  "exclude": ["node_modules"],
   "include": [
     "index.tsx",
     "**/index.tsx"

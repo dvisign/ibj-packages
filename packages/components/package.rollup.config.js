@@ -1,25 +1,27 @@
-import { terser } from "rollup-plugin-terser";
-import nodePolyfills from "rollup-plugin-node-polyfills";
-import sucrase from "@rollup/plugin-sucrase";
-import typescript from "@rollup/plugin-typescript";
-import external from "rollup-plugin-peer-deps-external";
+import { terser } from "rollup-plugin-terser"
+import nodePolyfills from "rollup-plugin-node-polyfills"
+import sucrase from "@rollup/plugin-sucrase"
+import typescript from "@rollup/plugin-typescript"
+import external from "rollup-plugin-peer-deps-external"
 import commonjs from "@rollup/plugin-commonjs"
 import { nodeResolve } from "@rollup/plugin-node-resolve"
 
 const rollupConfig = [
   {
     input: ["packages/components/index.tsx"],
-    output: [{
-      // file: "dist/components/index.js",
-      dir: "dist/components",
-      format: "es",
-      name: "ibjComponents",
-      sourcemap: process.env.NODE_ENV === "production" ? true : false,
-      globals: {
-        react: "React",
-        "react-dom": "ReactDOM",
+    output: [
+      {
+        // file: "dist/components/index.js",
+        dir: "dist/components",
+        format: "es",
+        name: "ibjComponents",
+        sourcemap: process.env.NODE_ENV === "production" ? true : false,
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
       },
-    }],
+    ],
     plugins: [
       nodeResolve({ browser: true }),
       external(),
@@ -33,7 +35,7 @@ const rollupConfig = [
       process.env.NODE_ENV === "production" && terser(),
     ],
     external: ["react", "react-dom"],
-  }
-];
+  },
+]
 
-export default rollupConfig;
+export default rollupConfig

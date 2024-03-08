@@ -16,6 +16,8 @@
   "include": [
     ".eslintrc.js",
     "packages/*",
+    "packages/*/package.rollup.config.js",
+    "rollup.config.js",
   ],
   "exclude": ["node_modules"],
   "ignorePattern": ["./dist/*"]

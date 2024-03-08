@@ -1,4 +1,5 @@
 {
   "name": "@ibj/components",
-  "private": true
+  "private": true,
+  "type": "module"
 }

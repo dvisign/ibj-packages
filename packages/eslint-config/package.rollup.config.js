@@ -20,10 +20,10 @@ const rollupConfig = {
     nodeResolve(),
     commonjs(),
     json(),
-    typescript({ tsconfig: "./packages/eslint-config/tsconfig.json"}),
+    typescript({ tsconfig: "./packages/eslint-config/tsconfig.json" }),
     process.env.NODE_ENV === "production" && terser(),
   ],
   external: ["path"],
 }
 
-export default rollupConfig;
+export default rollupConfig
