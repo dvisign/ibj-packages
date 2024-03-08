@@ -1,5 +1,5 @@
 {
-  "extends":"../../tsconfig.json",
+  "extends":"../typescript-config/next-config.json",
   "compilerOptions": {
     "outDir": "../../dist/components",
     "allowJs": true,

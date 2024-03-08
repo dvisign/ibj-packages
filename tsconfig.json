@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "dist",
     "baseUrl": "./",
-    "paths": { 
+    "paths": {
       "@ibj/*": ["packages/*"],
       "@ibj/components/*": ["packages/components/src/*"],
       "@ibj/eslint-config/*": ["packages/eslint-config/*"],
@@ -14,10 +14,11 @@
     "noEmit": false
   },
   "include": [
-    ".eslintrc.js",
+    ".eslintrc.json",
     "packages/*",
+    "packages/*/index.ts",
     "packages/*/package.rollup.config.js",
-    "rollup.config.mjs",
+    "rollup.config.mjs"
   ],
   "exclude": ["node_modules"],
   "ignorePattern": ["./dist/*"]

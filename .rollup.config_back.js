@@ -9,7 +9,7 @@ import { terser } from "rollup-plugin-terser"
 import external from "rollup-plugin-peer-deps-external"
 import alias from "@rollup/plugin-alias"
 import nodePolyfills from "rollup-plugin-node-polyfills"
-import rollupConfig from './packages/components/package.rollup.config'
+import rollupConfig from "./packages/components/package.rollup.config"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -77,4 +77,4 @@ const cjsConfig = {
 }
 
 // export default [esConfig, cjsConfig]
-export default rollupConfig;
+export default rollupConfig
