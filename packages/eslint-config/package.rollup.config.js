@@ -5,7 +5,6 @@ import commonjs from "@rollup/plugin-commonjs"
 import typescript from "@rollup/plugin-typescript"
 import json from "@rollup/plugin-json"
 import { terser } from "rollup-plugin-terser"
-import copy from "rollup-plugin-copy"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -21,19 +20,7 @@ const rollupConfig = {
     nodeResolve(),
     commonjs(),
     json(),
-    typescript({ tsconfig: "./packages/eslint-config/tsconfig.json", outDir: "dist/eslint-config" }),
-    copy({
-      targets: [
-        {
-          src: "packages/eslint-config/library.json",
-          dest: "dist/eslint-config",
-        },
-        {
-          src: "packages/eslint-config/next.json",
-          dest: "dist/eslint-config",
-        },
-      ],
-    }),
+    typescript({ tsconfig: "./packages/eslint-config/tsconfig.json" }),
     process.env.NODE_ENV === "production" && terser(),
   ],
   external: ["path"],

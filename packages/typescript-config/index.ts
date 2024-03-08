@@ -6,4 +6,6 @@ const baseConfig = baseConfigJson
 const nextConfig = nextConfigJson
 const reactLibraryConfig = reactLibraryConfigJson
 
-export { baseConfig, nextConfig, reactLibraryConfig, baseConfigJson, nextConfigJson, reactLibraryConfigJson }
+export { baseConfig, nextConfig, reactLibraryConfig, baseConfigJson,
+nextConfigJson,
+reactLibraryConfigJson }

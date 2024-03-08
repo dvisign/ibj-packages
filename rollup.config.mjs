@@ -7,6 +7,7 @@
 
 import fs from "fs"
 import path from "path"
+import { fileURLToPath } from "url"
 import { nodeResolve } from "@rollup/plugin-node-resolve"
 import commonjs from "@rollup/plugin-commonjs"
 import typescript from "@rollup/plugin-typescript"
@@ -14,66 +15,75 @@ import sucrase from "@rollup/plugin-sucrase"
 import json from "@rollup/plugin-json"
 import { terser } from "rollup-plugin-terser"
 import external from "rollup-plugin-peer-deps-external"
+import alias from "@rollup/plugin-alias"
 import nodePolyfills from "rollup-plugin-node-polyfills"
 import { promisify } from "util"
 
 const readdir = promisify(fs.readdir)
 const directoryPath = path.join(process.cwd(), "packages")
 
-// const defaultBuildConfig = {
-//   // ES 모듈용 설정
-//   esConfig: {
-//     input: "index.tsx",
-//     output: [
-//       {
-//         file: path.join(__dirname, "dist/index.js"),
-//         format: "umd",
-//         name: "IbjLibrary",
-//         sourcemap: process.env.NODE_ENV === "production" ? true : false,
-//         globals: {
-//           react: "React",
-//           "react-dom": "ReactDOM",
-//         },
-//       },
-//       {
-//         file: path.join(__dirname, "dist/index.esm.js"),
-//         format: "es",
-//         sourcemap: process.env.NODE_ENV === "production" ? true : false,
-//       },
-//     ],
-//     plugins: [
-//       alias({
-//         entries: [
-//           { find: "@ibj", replacement: path.resolve(__dirname, "packages") },
-//           { find: "@ibj/components", replacement: path.resolve(__dirname, "packages/components/src") },
-//         ],
-//       }),
-//       nodeResolve({ browser: true }), // browser 옵션 추가
-//       external(),
-//       commonjs(),
-//       json(),
-//       typescript({ tsconfig: "./tsconfig.json", exclude: "**/*.tsx" }),
-//       sucrase({
-//         exclude: ["node_modules/**"],
-//         transforms: ["typescript", "jsx"],
-//       }),
-//       process.env.NODE_ENV === "production" && terser(),
-//       nodePolyfills(), // 추가
-//     ],
-//     external: ["react", "react-dom"],
-//   },
-//   // CommonJS 모듈용 설정
-//   cjsConfig: {
-//     input: "packages/eslint-config/index.ts", // 가정된 시작점
-//     output: {
-//       file: path.join(__dirname, "dist/cjs/index.js"),
-//       format: "cjs",
-//       sourcemap: process.env.NODE_ENV === "production",
-//     },
-//     plugins: [nodeResolve(), commonjs(), json(), typescript({ tsconfig: "./tsconfig.json" })],
-//     external: ["path"],
-//   },
-// }
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+const defaultBuildConfig = {
+  // ES 모듈용 설정
+  esConfig : {
+    input: "index.tsx",
+    output: [
+      {
+        file: path.join(__dirname, "dist/index.js"),
+        format: "umd",
+        name: "IbjLibrary",
+        sourcemap: process.env.NODE_ENV === "production" ? true : false,
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
+      {
+        file: path.join(__dirname, "dist/index.esm.js"),
+        format: "es",
+        sourcemap: process.env.NODE_ENV === "production" ? true : false,
+      },
+    ],
+    plugins: [
+      alias({
+        entries: [
+          { find: "@ibj", replacement: path.resolve(__dirname, "packages") },
+          { find: "@ibj/components", replacement: path.resolve(__dirname, "packages/components/src") },
+        ],
+      }),
+      nodeResolve({ browser: true }), // browser 옵션 추가
+      external(),
+      commonjs(),
+      json(),
+      typescript({ tsconfig: "./tsconfig.json", exclude: "**/*.tsx" }),
+      sucrase({
+        exclude: ["node_modules/**"],
+        transforms: ["typescript", "jsx"],
+      }),
+      process.env.NODE_ENV === "production" && terser(),
+      nodePolyfills(), // 추가
+    ],
+    external: ["react", "react-dom"],
+  },
+  // CommonJS 모듈용 설정
+  cjsConfig : {
+    input: "packages/eslint-config/index.ts", // 가정된 시작점
+    output: {
+      file: path.join(__dirname, "dist/cjs/index.js"),
+      format: "cjs",
+      sourcemap: process.env.NODE_ENV === "production",
+    },
+    plugins: [
+      nodeResolve(),
+      commonjs(),
+      json(),
+      typescript({ tsconfig: "./tsconfig.json" }),
+    ],
+    external: ["path"],
+  }
+}
 
 function defaultConfig(moduleType = ["es"], fileDir = "", tsx = false) {
   if (!fileDir || !moduleType) {
@@ -88,18 +98,15 @@ function defaultConfig(moduleType = ["es"], fileDir = "", tsx = false) {
       sourcemap: process.env.NODE_ENV === "production",
     },
     plugins: [
-      nodeResolve({ browser: true }), // browser 옵션 추가,
+      nodeResolve(),
       commonjs(),
       json(),
-      typescript({ tsconfig: `./packages/${fileDir}/tsconfig.json`, outDir: `dist/${fileDir}` }),
-      external(),
-      sucrase({
-        exclude: ["node_modules/**"],
-      }),
-      nodePolyfills(), // 추가
+      typescript({ tsconfig: `./packages/${fileDir}/tsconfig.json`,outDir:`dist/${fileDir}` }),
       process.env.NODE_ENV === "production" && terser(),
     ],
-    external: ["path"],
+    external: [
+      "path"
+    ],
   }))
 }
 

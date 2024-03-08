@@ -1,10 +1,10 @@
-const path = require("path")
+const { resolve } = require("path")
 
 module.exports = {
-  extends: ["./packages/eslint-config/next.json"],
+  extends: ["./packages/eslint-config/next.js"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: path.resolve(__dirname, "./tsconfig.json"),
+    project: resolve(__dirname, "./tsconfig.json"),
   },
   env: {
     node: true,
@@ -13,7 +13,7 @@ module.exports = {
     "import/resolver": {
       typescript: {
         alwaysTryTypes: true,
-        project: path.resolve(__dirname, "tsconfig.json"),
+        project: resolve(__dirname, "tsconfig.json"),
       },
     },
   },
