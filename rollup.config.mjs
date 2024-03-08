@@ -85,15 +85,15 @@ const defaultBuildConfig = {
   }
 }
 
-function defaultConfig(moduleType = "es", fileDir = "", tsx = false) {
+function defaultConfig(moduleType = ["es"], fileDir = "", tsx = false) {
   if (!fileDir || !moduleType) {
     return null
   }
-  return {
+  return moduleType.map(module => ({
     input: `packages/${fileDir}/index.${tsx ? "tsx" : "ts"}`,
     output: {
       dir: `dist/${fileDir}`,
-      format: `${moduleType}`,
+      format: `${module}`,
       name: "fileDir",
       sourcemap: process.env.NODE_ENV === "production",
     },
@@ -107,7 +107,7 @@ function defaultConfig(moduleType = "es", fileDir = "", tsx = false) {
     external: [
       "path"
     ],
-  }
+  }))
 }
 
 async function readPackageConfigs() {
@@ -120,11 +120,11 @@ async function readPackageConfigs() {
       const packageConfig = await import(configPath)
       configs.push(packageConfig.default)
     } else {
-      const defaultConf = defaultConfig("cjs", dir, false)
+      const defaultConf = defaultConfig(["cjs"], dir, false)
       configs.push(defaultConf)
     }
   }
-  return configs
+  return configs.filter(v => v)
 }
 
 async function loadConfigs() {
