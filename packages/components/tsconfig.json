@@ -4,7 +4,8 @@
     "outDir": "../../dist/components",
     "allowJs": true,
     "module": "ES6",
-    "noEmit": false
+    "noEmit": false,
+    "declaration": true,
   },
   "exclude": ["node_modules"],
   "include": ["index.tsx", "**/index.tsx", "package.rollup.config.js"]
