@@ -48,7 +48,12 @@ const defaultBuildConfig = {
     ],
     plugins: [
       alias({
-        entries: [{ find: "@ibj", replacement: path.resolve(__dirname, "packages") }],
+        entries: [
+          { find: "@ibj", replacement: "./dist" },
+          { find: "@ibj/components", replacement: "./dist/components" },
+          { find: "@ibj/typescript-config", replacement: "./dist/typescript-config" },
+          { find: "@ibj/eslint-config", replacement: "./dist/eslint-config" },
+        ],
       }),
       nodeResolve({ browser: true }), // browser 옵션 추가
       external(),
