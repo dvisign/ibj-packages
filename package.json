@@ -11,10 +11,10 @@
   "scripts": {
     "build": "rollup -c --verbose",
     "build:webpack": "webpack --mode production",
+    "format:fix": "prettier --write --ignore-path .gitignore .",
     "start": "webpack serve --open --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",

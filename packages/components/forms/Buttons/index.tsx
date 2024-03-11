@@ -1,7 +1,6 @@
-import React from "react"
+import React, { memo } from "react"
 import { useButton } from "@mui/base"
 import { clsx } from "clsx"
-import { memo } from "react"
 
 import { ButtonBase } from "./Buttons.styles"
 import type { ButtonTypes } from "./Buttons.types"

@@ -1,6 +1,6 @@
-const path = require("path");
+const path = require("path")
 
-const project = path.resolve(process.cwd(), "tsconfig.json");
+const project = path.resolve(process.cwd(), "tsconfig.json")
 
 module.exports = {
   parserOptions: {
@@ -32,4 +32,4 @@ module.exports = {
     "node_modules/",
     "*.json",
   ],
-};
+}

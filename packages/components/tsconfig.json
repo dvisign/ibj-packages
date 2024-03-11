@@ -1,5 +1,5 @@
 {
-  "extends":"../../tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/components",
     "allowJs": true,
@@ -7,8 +7,5 @@
     "noEmit": false
   },
   "exclude": ["node_modules"],
-  "include": [
-    "index.tsx",
-    "**/index.tsx"
-  ],
+  "include": ["index.tsx", "**/index.tsx", "package.rollup.config.js"]
 }

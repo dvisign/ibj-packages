@@ -27,7 +27,7 @@ const __dirname = path.dirname(__filename)
 
 const defaultBuildConfig = {
   // ES 모듈용 설정
-  esConfig : {
+  esConfig: {
     input: "index.tsx",
     output: [
       {
@@ -68,21 +68,16 @@ const defaultBuildConfig = {
     external: ["react", "react-dom"],
   },
   // CommonJS 모듈용 설정
-  cjsConfig : {
+  cjsConfig: {
     input: "packages/eslint-config/index.ts", // 가정된 시작점
     output: {
       file: path.join(__dirname, "dist/cjs/index.js"),
       format: "cjs",
       sourcemap: process.env.NODE_ENV === "production",
     },
-    plugins: [
-      nodeResolve(),
-      commonjs(),
-      json(),
-      typescript({ tsconfig: "./tsconfig.json" }),
-    ],
+    plugins: [nodeResolve(), commonjs(), json(), typescript({ tsconfig: "./tsconfig.json" })],
     external: ["path"],
-  }
+  },
 }
 
 function defaultConfig(moduleType = ["es"], fileDir = "", tsx = false) {
@@ -101,12 +96,10 @@ function defaultConfig(moduleType = ["es"], fileDir = "", tsx = false) {
       nodeResolve(),
       commonjs(),
       json(),
-      typescript({ tsconfig: `./packages/${fileDir}/tsconfig.json`,outDir:`dist/${fileDir}` }),
+      typescript({ tsconfig: `./packages/${fileDir}/tsconfig.json`, outDir: `dist/${fileDir}` }),
       process.env.NODE_ENV === "production" && terser(),
     ],
-    external: [
-      "path"
-    ],
+    external: ["path"],
   }))
 }
 

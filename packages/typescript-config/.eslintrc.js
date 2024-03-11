@@ -3,7 +3,7 @@ const { resolve } = require("path")
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
-  extends: ["./packages/eslint-config/next.js"],
+  extends: ["../eslint-config/next.js"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: true,

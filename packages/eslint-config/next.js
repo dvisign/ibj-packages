@@ -26,7 +26,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  ignorePatterns: ["*.json", "node_modules/"],
+  ignorePatterns: ["*.json", "node_modules/", "dist/"],
   overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
   plugins: ["@typescript-eslint", "react", "autofix", "react-hooks", "prettier"],
   settings: {
