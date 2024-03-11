@@ -110,9 +110,13 @@ async function readPackageConfigs() {
   const configs = []
 
   for (const dir of dirs) {
-    const configPath = new URL(`file://${directoryPath}/${dir}/package.rollup.config.js`)
-    if (fs.existsSync(configPath)) {
-      const packageConfig = await import(configPath)
+    const configPathES = new URL(`file://${directoryPath}/${dir}/package.rollup.config.js`)
+    const configPathCM = new URL(`file://${directoryPath}/${dir}/package.rollup.config.mjs`)
+    if (fs.existsSync(configPathES)) {
+      const packageConfig = await import(configPathES)
+      configs.push(packageConfig.default)
+    } else if (fs.existsSync(configPathCM)) {
+      const packageConfig = await import(configPathCM)
       configs.push(packageConfig.default)
     } else {
       const defaultConf = defaultConfig(["cjs"], dir, false)
