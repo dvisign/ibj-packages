@@ -48,10 +48,7 @@ const defaultBuildConfig = {
     ],
     plugins: [
       alias({
-        entries: [
-          { find: "@ibj", replacement: path.resolve(__dirname, "packages") },
-          { find: "@ibj/components", replacement: path.resolve(__dirname, "packages/components/src") },
-        ],
+        entries: [{ find: "@ibj", replacement: path.resolve(__dirname, "packages") }],
       }),
       nodeResolve({ browser: true }), // browser 옵션 추가
       external(),
@@ -124,7 +121,7 @@ async function loadConfigs() {
   const packageConfigs = await readPackageConfigs()
   const buildConfig = packageConfigs.flat()
 
-  return buildConfig
+  return [defaultBuildConfig.esConfig, ...buildConfig]
 }
 
 export default loadConfigs()

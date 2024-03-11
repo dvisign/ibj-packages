@@ -9,6 +9,7 @@ function Button({ children, disabled, ...props }: ButtonTypes) {
   const { active, focusVisible, getRootProps } = useButton({
     ...props,
   })
+
   const classes = {
     active,
     disabled,

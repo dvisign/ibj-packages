@@ -30,6 +30,9 @@ module.exports = {
   overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
   plugins: ["@typescript-eslint", "react", "autofix", "react-hooks", "prettier"],
   settings: {
+    react: {
+      version: "detect",
+    },
     "import/resolver": {
       typescript: {
         project,

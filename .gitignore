@@ -6,3 +6,4 @@ package-lock.json
 .turbo
 dist
 .rollup.cache
+.npmrc

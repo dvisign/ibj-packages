@@ -5,15 +5,16 @@
     "baseUrl": "./",
     "paths": {
       "@ibj/*": ["packages/*"],
-      "@ibj/components/*": ["packages/components/src/*"],
+      "@ibj/components/*": ["packages/components/*"],
       "@ibj/eslint-config/*": ["packages/eslint-config/*"],
+      "@ibj/typescript-config/*": ["packages/typescript-config/*"],
       "@lib/*": ["lib/*"]
     },
     "allowJs": true,
     "module": "ES6",
     "noEmit": false
   },
-  "include": [".eslintrc.js", "packages/*", "packages/*/package.rollup.config.js", "rollup.config.mjs"],
+  "include": [".eslintrc.js", "packages/*", "packages/*/package.rollup.config.js", "rollup.config.mjs", "webpack.config.mjs", "index.tsx", "**/*.tsx"],
   "exclude": ["node_modules"],
   "ignorePattern": ["dist/*"]
 }
