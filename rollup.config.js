@@ -12,7 +12,7 @@ export default [
     input: ["src/components/index.tsx"],
     output: [
       {
-        dir: "dist/components",
+        dir: "dist",
         format: "es",
         name: "ibjComponents",
         sourcemap: process.env.NODE_ENV === "production" ? true : false,
@@ -30,7 +30,7 @@ export default [
         tsconfig: "./tsconfig.json",
         outputToFilesystem: true,
         declaration: true,
-        outDir: "dist/components",
+        outDir: "dist",
       }),
       sucrase({
         exclude: ["node_modules/**", "src/stories/**"],
