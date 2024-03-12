@@ -1,6 +1,6 @@
 {
   "name": "@dvisign/ibj-packages",
-  "version": "1.1.5",
+  "version": "1.2.2",
   "description": "",
   "main": "./dist/index.js",
   "files": [
@@ -22,7 +22,8 @@
     "start": "webpack serve --open --mode development",
     "storybook": "storybook dev -p 6006",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "ts": "tsc --showConfig"
   },
   "keywords": [],
   "license": "ISC",
@@ -87,8 +88,7 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.2",
     "webpack-node-externals": "^3.0.0",
-    "@dvisign/ibj-eslint-config": "^0.0.9",
-    "@dvisign/ibj-typescript-config":"^0.0.3"
+    "@dvisign/ibj-config": "^0.0.3"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
@@ -105,8 +105,7 @@
   "peerDependencies": {
     "@mswjs/http-middleware": "^0.9.2",
     "msw": "^2.2.2",
-    "@dvisign/ibj-eslint-config": "^0.0.9",
-    "@dvisign/ibj-typescript-config":"^0.0.3"
+    "@dvisign/ibj-config": "^0.0.3"
   },
   "resolutions": {
     "@emotion/serialize": "1.1.3"

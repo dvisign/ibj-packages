@@ -1,5 +1,5 @@
 const { resolve } = require("path")
-const { nextLintConfig } = require("@dvisign/ibj-eslint-config")
+const { nextLintConfig } = require("@dvisign/ibj-config")
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
