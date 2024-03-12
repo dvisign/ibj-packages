@@ -33,7 +33,7 @@ export default [
         outDir: "dist",
       }),
       sucrase({
-        exclude: ["node_modules/**", "src/stories/**"],
+        exclude: ["node_modules/**"],
         transforms: ["typescript", "jsx"],
       }),
       alias({
@@ -44,6 +44,6 @@ export default [
       nodePolyfills(),
       process.env.NODE_ENV === "production" && terser(),
     ],
-    external: ["react", "react-dom"],
+    external: ["react", "react-dom", "src/stories/**"],
   },
 ]

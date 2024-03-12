@@ -17,6 +17,6 @@
     "noEmit": false,
   },
   "include": [".eslintrc.js", "**/*.tsx", "rollup.config.js"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "src/stories/**"],
   "ignorePattern": ["dist/*"]
 }
