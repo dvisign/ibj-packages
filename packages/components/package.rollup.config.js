@@ -26,7 +26,12 @@ const rollupConfig = [
       nodeResolve({ browser: true }),
       external(),
       commonjs(),
-      typescript({ tsconfig: "./packages/components/tsconfig.json", outputToFilesystem: true }),
+      typescript({
+        tsconfig: "./packages/components/tsconfig.json",
+        outputToFilesystem: true,
+        declaration: true,
+        outDir: "dist/components",
+      }),
       sucrase({
         exclude: ["node_modules/**"],
         transforms: ["typescript", "jsx"],
