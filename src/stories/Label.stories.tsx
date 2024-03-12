@@ -1,6 +1,6 @@
 import React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
-import { TextLabel, TextLabelTypes } from "@ibj/components"
+import { TextLabel, TextLabelTypes } from "@/components"
 
 const meta = {
   title: "Component/Atoms/Forms/TextLabel",

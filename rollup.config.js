@@ -5,13 +5,13 @@ import typescript from "@rollup/plugin-typescript"
 import external from "rollup-plugin-peer-deps-external"
 import commonjs from "@rollup/plugin-commonjs"
 import { nodeResolve } from "@rollup/plugin-node-resolve"
+import alias from "@rollup/plugin-alias"
 
-const rollupConfig = [
+export default [
   {
-    input: ["packages/components/index.tsx"],
+    input: ["src/components/index.tsx"],
     output: [
       {
-        // file: "dist/components/index.js",
         dir: "dist/components",
         format: "es",
         name: "ibjComponents",
@@ -27,14 +27,19 @@ const rollupConfig = [
       external(),
       commonjs(),
       typescript({
-        tsconfig: "./packages/components/tsconfig.json",
+        tsconfig: "./tsconfig.json",
         outputToFilesystem: true,
         declaration: true,
         outDir: "dist/components",
       }),
       sucrase({
-        exclude: ["node_modules/**"],
+        exclude: ["node_modules/**", "src/stories/**"],
         transforms: ["typescript", "jsx"],
+      }),
+      alias({
+        entries: [
+          { find: "@/components/*", replacement: "src/components/*" }, // `@`를 `src/`로 매핑
+        ],
       }),
       nodePolyfills(),
       process.env.NODE_ENV === "production" && terser(),
@@ -42,5 +47,3 @@ const rollupConfig = [
     external: ["react", "react-dom"],
   },
 ]
-
-export default rollupConfig

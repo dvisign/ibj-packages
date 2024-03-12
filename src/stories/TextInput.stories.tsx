@@ -2,7 +2,8 @@ import React, { useCallback, ChangeEvent } from "react"
 import { action } from "@storybook/addon-actions"
 import { useArgs } from "@storybook/preview-api"
 import type { Meta, StoryObj } from "@storybook/react"
-import { TextInput, TextInputTypes } from "@ibj/components"
+import { TextInputTypes, TextInput } from "@/components"
+
 const meta = {
   title: "Component/Atoms/Forms/TextInput",
   component: TextInput,
@@ -34,7 +35,7 @@ export const Default: Story = {
         setValue({ ...defaultArgs, value: e.target.value })
         defaultArgs.onChange(e)
       },
-      [defaultArgs],
+      [defaultArgs, setValue],
     )
     return <TextInput {...args} value={defaultArgs.value} onChange={handleChange} />
   },

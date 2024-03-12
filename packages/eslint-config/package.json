@@ -1,8 +1,0 @@
-{
-  "name": "@ibj/eslint-config",
-  "private": true,
-  "files": [
-    "library.js",
-    "next.js"
-  ]
-}

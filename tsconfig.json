@@ -1,22 +1,22 @@
 {
-  "extends": "./packages/typescript-config/base.json",
+  "extends": "@dvisign/ibj-typescript-config/base.json",
   "compilerOptions": {
     "outDir": "dist",
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
-      "@dvisign/ibj-packages/*": ["./node_modules/@dvisign/ibj-packages/dist/*"],
-      "@dvisign/ibj-packages/components/*": ["./node_modules/@dvisign/ibj-packages/dist/components/*"],
-      "@ibj/*": ["./packages/*"],
-      "@ibj/components/*": ["./packages/components/*"],
-      "@ibj/eslint-config/*": ["./packages/eslint-config/*"],
-      "@ibj/typescript-config/*": ["./packages/typescript-config/*"],
-      "@lib/*": ["./lib/*"],
+      "@/*": ["src/*"],
+      "@/components/*": ["src/components/*"],
     },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "allowJs": true,
     "module": "ES6",
     "noEmit": false,
   },
-  "include": [".eslintrc.js", "packages/*", "packages/*/package.rollup.config.js", "rollup.config.mjs", "webpack.config.mjs", "index.tsx", "**/*.tsx"],
+  "include": [".eslintrc.js", "**/*.tsx", "rollup.config.js"],
   "exclude": ["node_modules"],
   "ignorePattern": ["dist/*"]
 }

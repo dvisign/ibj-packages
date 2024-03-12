@@ -13,9 +13,7 @@
   "author": "dvisign",
   "exports": {
     ".": "./dist/index.js",
-    "./components/*": "./dist/components/*",
-    "./eslint-config/*": "./dist/eslint-config/*",
-    "./typescript-config/*": "./dist/typescript-config/*"
+    "./components/*": "./dist/components/*"
   },
   "scripts": {
     "build": "rollup -c --verbose",
@@ -88,7 +86,9 @@
     "webpack": "^5.1.4",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.2",
-    "webpack-node-externals": "^3.0.0"
+    "webpack-node-externals": "^3.0.0",
+    "@dvisign/ibj-eslint-config": "^0.0.9",
+    "@dvisign/ibj-typescript-config":"^0.0.3"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
@@ -104,7 +104,9 @@
   },
   "peerDependencies": {
     "@mswjs/http-middleware": "^0.9.2",
-    "msw": "^2.2.2"
+    "msw": "^2.2.2",
+    "@dvisign/ibj-eslint-config": "^0.0.9",
+    "@dvisign/ibj-typescript-config":"^0.0.3"
   },
   "resolutions": {
     "@emotion/serialize": "1.1.3"

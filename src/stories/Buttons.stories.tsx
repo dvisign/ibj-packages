@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import type { Meta, StoryObj } from "@storybook/react"
-import { Buttons, ButtonTypes } from "@ibj/components"
+import { ButtonTypes, Buttons } from "@/components"
 
 const meta = {
   title: "Component/Atoms/Forms/Buttons",
