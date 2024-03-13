@@ -1,4 +1,4 @@
-import { memo } from "react"
+import React, { memo } from "react"
 import { LabelStyle } from "./TextLabel.styles."
 import type { TextLabelTypes } from "./TextLabel.types"
 

@@ -1,4 +1,4 @@
-import { memo } from "react"
+import React, { memo } from "react"
 import { useInput } from "@mui/base"
 import { InputBaseStyle } from "./TextInput.styles"
 import type { TextInputTypes } from "./TextInput.types"
